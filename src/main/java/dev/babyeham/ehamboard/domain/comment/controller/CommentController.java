@@ -24,7 +24,7 @@ public class CommentController {
 
     @PostMapping("/posts/{postId}/comments")
     @Operation(summary = "댓글 작성")
-    public ResponseEntity<CommentResponse> createComment(@PathVariable Long postId,
+    public ResponseEntity<CommentResponse> createComment(@PathVariable("postId") Long postId,
                                                           @Valid @RequestBody CreateCommentRequest request,
                                                           @AuthenticationPrincipal User user) {
         CommentResponse response = commentService.createComment(postId, request, user.getId());
@@ -33,21 +33,21 @@ public class CommentController {
 
     @GetMapping("/posts/{postId}/comments")
     @Operation(summary = "특정 게시글 댓글 조회")
-    public ResponseEntity<List<CommentResponse>> getComments(@PathVariable Long postId) {
+    public ResponseEntity<List<CommentResponse>> getComments(@PathVariable("postId") Long postId) {
         List<CommentResponse> response = commentService.getCommentsByPost(postId);
         return ResponseEntity.ok(response);
     }
 
     @GetMapping("/comments/{commentId}")
     @Operation(summary = "댓글 하나 조회")
-    public ResponseEntity<CommentResponse> getComment(@PathVariable Long commentId) {
+    public ResponseEntity<CommentResponse> getComment(@PathVariable("commentId") Long commentId) {
         CommentResponse response = commentService.getComment(commentId);
         return ResponseEntity.ok(response);
     }
 
     @PutMapping("/comments/{commentId}")
     @Operation(summary = "댓글 수정")
-    public ResponseEntity<CommentResponse> updateComment(@PathVariable Long commentId,
+    public ResponseEntity<CommentResponse> updateComment(@PathVariable("commentId") Long commentId,
                                                           @Valid @RequestBody UpdateCommentRequest request,
                                                           @AuthenticationPrincipal User user) {
         CommentResponse response = commentService.updateComment(commentId, request, user.getId());
@@ -56,7 +56,7 @@ public class CommentController {
 
     @DeleteMapping("/comments/{commentId}")
     @Operation(summary = "댓글 삭제")
-    public ResponseEntity<MessageResponse> deleteComment(@PathVariable Long commentId,
+    public ResponseEntity<MessageResponse> deleteComment(@PathVariable("commentId") Long commentId,
                                                           @AuthenticationPrincipal User user) {
         commentService.deleteComment(commentId, user.getId());
         return ResponseEntity.ok(new MessageResponse("댓글 삭제 성공"));
