@@ -1,6 +1,6 @@
 package dev.babyeham.ehamboard.global.security;
 
-import dev.babyeham.ehamboard.domain.user.UserRepository;
+import dev.babyeham.ehamboard.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
