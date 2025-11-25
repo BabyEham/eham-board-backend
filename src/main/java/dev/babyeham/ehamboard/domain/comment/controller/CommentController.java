@@ -32,7 +32,7 @@ public class CommentController {
     }
 
     @GetMapping("/posts/{postId}/comments")
-    @Operation(summary = "특정 게시글의 댓글 목록 조회")
+    @Operation(summary = "특정 게시글 댓글 조회")
     public ResponseEntity<List<CommentResponse>> getComments(@PathVariable Long postId) {
         List<CommentResponse> response = commentService.getCommentsByPost(postId);
         return ResponseEntity.ok(response);
