@@ -1,4 +1,4 @@
-package dev.babyeham.ehamboard.domain.user;
+package dev.babyeham.ehamboard.domain.user.entity;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
