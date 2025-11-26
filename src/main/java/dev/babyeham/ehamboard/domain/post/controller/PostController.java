@@ -64,4 +64,11 @@ public class PostController {
         postService.deletePost(postId, user.getId());
         return ResponseEntity.ok(new MessageResponse("게시글 삭제 성공"));
     }
+
+    @GetMapping("/getByUser")
+    public ResponseEntity<List<PostResponse>> getPostsByUser(
+            @AuthenticationPrincipal User user) {
+        List<PostResponse> response = postService.getPostsByUser(user.getId());
+        return ResponseEntity.ok(response);
+    }
 }

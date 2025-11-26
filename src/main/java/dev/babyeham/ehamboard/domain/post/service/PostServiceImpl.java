@@ -92,4 +92,13 @@ public class PostServiceImpl implements PostService {
 
         postRepository.delete(post);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<PostResponse> getPostsByUser(Long userId) {
+        return postRepository.findPostsByUserId(userId)
+                .stream()
+                .map(PostResponse::from)
+                .collect(Collectors.toList());
+    }
 }
