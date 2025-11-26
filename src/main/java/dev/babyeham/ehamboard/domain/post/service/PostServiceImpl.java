@@ -1,8 +1,10 @@
 package dev.babyeham.ehamboard.domain.post.service;
 
-import dev.babyeham.ehamboard.domain.post.dto.*;
 import dev.babyeham.ehamboard.domain.post.entity.Post;
 import dev.babyeham.ehamboard.domain.post.repository.PostRepository;
+import dev.babyeham.ehamboard.domain.post.dto.CreatePostRequest;
+import dev.babyeham.ehamboard.domain.post.dto.PostResponse;
+import dev.babyeham.ehamboard.domain.post.dto.UpdatePostRequest;
 import dev.babyeham.ehamboard.domain.user.entity.User;
 import dev.babyeham.ehamboard.domain.user.repository.UserRepository;
 import dev.babyeham.ehamboard.global.exception.PostNotFoundException;
